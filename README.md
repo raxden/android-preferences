@@ -1,7 +1,7 @@
 Android Preferences
 ==========
 
-Android Preferences .... . Works on Android 4.1 (API level 16) and upwards.
+Android Preferences is a component to android that allow the developers put objects in SharedPreferences using Google Json Library. Works on Android 4.1 (API level 16) and upwards.
 
 [![Release](https://img.shields.io/github/release/raxden/AndroidPreferences.svg?label=maven central)](https://jitpack.io/#raxden/AndroidPreferences/) [![API](https://img.shields.io/badge/API-16%2B-green.svg?style=flat)](https://android-arsenal.com/api?level=16)
 
