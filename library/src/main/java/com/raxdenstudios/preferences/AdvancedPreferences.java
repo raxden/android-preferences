@@ -2,7 +2,6 @@ package com.raxdenstudios.preferences;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.content.SharedPreferencesCompat;
 import android.util.Log;
@@ -14,6 +13,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -30,6 +30,7 @@ public class AdvancedPreferences {
     public AdvancedPreferences(Context context) {
         mSettings = PreferenceManager.getDefaultSharedPreferences(context);
         mEditor = mSettings.edit();
+
     }
 
     public AdvancedPreferences(Context context, String name, int mode) {
@@ -38,6 +39,22 @@ public class AdvancedPreferences {
         }
         mSettings = context.getSharedPreferences(name, mode);
         mEditor = mSettings.edit();
+    }
+
+    public Map<String, ?> getAll() {
+        return mSettings.getAll();
+    }
+
+    public void contains(String key) {
+        mSettings.contains(key);
+    }
+
+    public void remove(String key) {
+        mEditor.remove(key);
+    }
+
+    public void clear() {
+        mEditor.clear();
     }
 
     public void commit() {
@@ -158,10 +175,17 @@ public class AdvancedPreferences {
         else if (value instanceof Float) put(key, (Float)value);
         else if (value instanceof JSONObject) put(key, (JSONObject)value);
         else if (value instanceof JSONArray) put(key, (JSONArray)value);
-        else if (value instanceof Bundle) put(key, (Bundle)value);
         else {
             put(key, mGson.toJson(value));
         }
+    }
+
+    public SharedPreferences.Editor getEditor() {
+        return mEditor;
+    }
+
+    public SharedPreferences getSharedPreferences() {
+        return mSettings;
     }
 
 }

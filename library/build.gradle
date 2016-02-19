@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'com.raxdenstudios'
-version = '2.2.0'
+version = '2.2.1'
 
 android {
     compileSdkVersion 23
@@ -37,9 +37,7 @@ dependencies {
     testCompile "org.assertj:assertj-core:1.7.0"
     testCompile "org.robolectric:robolectric:3.0"
 
-    compile 'com.google.android.gms:play-services:8.4.0'
-    compile 'com.github.raxden:AndroidCommons:v2.2.+'
-    compile 'com.google.code.gson:gson:2.4'
+    compile 'com.android.support:support-v4:23.1.+'
 }
 
 task sourcesJar(type: Jar) {
