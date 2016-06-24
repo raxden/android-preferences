@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-	    compile 'com.github.raxden:AndroidPreferences:v2.2.2@aar'
+	    compile 'com.github.raxden:AndroidPreferences:2.2.4@aar'
 }
 ```
 
@@ -33,7 +33,7 @@ dependencies {
 <dependency>
 	    <groupId>com.github.raxden</groupId>
 	    <artifactId>AndroidPreferences</artifactId>
-	    <version>v2.2.2</version>
+	    <version>2.2.4</version>
 </dependency>
 ```
 
@@ -43,4 +43,4 @@ dependencies {
 
 ### Documentation 
 
-For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidPreferences/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidPreferences/v2.2.2/javadoc/).
+For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidPreferences/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidPreferences/2.2.4/javadoc/).
