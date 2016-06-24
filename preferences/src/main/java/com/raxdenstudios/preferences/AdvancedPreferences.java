@@ -175,9 +175,7 @@ public class AdvancedPreferences {
         else if (value instanceof Float) put(key, (Float)value);
         else if (value instanceof JSONObject) put(key, (JSONObject)value);
         else if (value instanceof JSONArray) put(key, (JSONArray)value);
-        else {
-            put(key, mGson.toJson(value));
-        }
+        else put(key, mGson.toJson(value));
     }
 
     public SharedPreferences.Editor getEditor() {
