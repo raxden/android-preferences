@@ -46,6 +46,6 @@ ext.deps = [
         // Third Party
         gson:               "com.google.code.gson:gson:$gsonVersion",
         junit:              "junit:junit:${jUnitVersion}",
-        asserj:             "org.assertj:assertj-core:${jUnitVersion}",
+        asserj:             "org.assertj:assertj-core:${assertJVersion}",
         robolectric:        "org.robolectric:robolectric:${roboelectricVersion}"
 ]
