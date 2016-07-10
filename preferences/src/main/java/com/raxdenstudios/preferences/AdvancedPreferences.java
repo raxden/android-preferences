@@ -3,7 +3,6 @@ package com.raxdenstudios.preferences;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.v4.content.SharedPreferencesCompat;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -62,7 +61,7 @@ public class AdvancedPreferences {
     }
 
     public void apply() {
-        SharedPreferencesCompat.EditorCompat.getInstance().apply(mEditor);
+        mEditor.apply();
     }
 
     public int get(String key, int defaultValue) {
