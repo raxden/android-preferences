@@ -20,6 +20,7 @@ repositories {
 
 dependencies {
 	    compile 'com.github.raxden:AndroidPreferences:2.2.4@aar'
+	    
         compile 'com.google.code.gson:gson:2.6.2'  //you can override Gson version if you need
 }
 ```
