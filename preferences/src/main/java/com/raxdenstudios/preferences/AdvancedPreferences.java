@@ -29,7 +29,6 @@ public class AdvancedPreferences {
     public AdvancedPreferences(Context context) {
         mSettings = PreferenceManager.getDefaultSharedPreferences(context);
         mEditor = mSettings.edit();
-
     }
 
     public AdvancedPreferences(Context context, String name, int mode) {
@@ -44,20 +43,22 @@ public class AdvancedPreferences {
         return mSettings.getAll();
     }
 
-    public void contains(String key) {
-        mSettings.contains(key);
+    public boolean contains(String key) {
+        return mSettings.contains(key);
     }
 
-    public void remove(String key) {
+    public SharedPreferences.Editor remove(String key) {
         mEditor.remove(key);
+        return mEditor;
     }
 
-    public void clear() {
+    public SharedPreferences.Editor clear() {
         mEditor.clear();
+        return mEditor;
     }
 
-    public void commit() {
-        mEditor.commit();
+    public boolean commit() {
+        return mEditor.commit();
     }
 
     public void apply() {
@@ -133,39 +134,47 @@ public class AdvancedPreferences {
         }
     }
 
-    public void put(String key, Integer value) {
+    public SharedPreferences.Editor put(String key, Integer value) {
         mEditor.putInt(key, value);
+        return mEditor;
     }
     
-    public void put(String key, Set<String> value) {
+    public SharedPreferences.Editor put(String key, Set<String> value) {
         mEditor.putStringSet(key, value);
+        return mEditor;
     }
 
-    public void put(String key, String value) {
+    public SharedPreferences.Editor put(String key, String value) {
         mEditor.putString(key, value);
+        return mEditor;
     }
 
-    public void put(String key, Boolean value) {
+    public SharedPreferences.Editor put(String key, Boolean value) {
         mEditor.putBoolean(key, value);
+        return mEditor;
     }
 
-    public void put(String key, Long value) {
+    public SharedPreferences.Editor put(String key, Long value) {
         mEditor.putLong(key, value);
+        return mEditor;
     }
 
-    public void put(String key, Float value) {
+    public SharedPreferences.Editor put(String key, Float value) {
         mEditor.putFloat(key, value);
+        return mEditor;
     }
 
-    public void put(String key, JSONObject value) {
+    public SharedPreferences.Editor put(String key, JSONObject value) {
         mEditor.putString(key, value.toString());
+        return mEditor;
     }
 
-    public void put(String key, JSONArray value) {
+    public SharedPreferences.Editor put(String key, JSONArray value) {
         mEditor.putString(key, value.toString());
+        return mEditor;
     }
 
-    public void put(String key, Object value) {
+    public SharedPreferences.Editor put(String key, Object value) {
         if (value instanceof Integer) put(key, (Integer)value);
         else if (value instanceof Set) put(key, (Set<String>)value);
         else if (value instanceof String) put(key, (String)value);
@@ -175,6 +184,7 @@ public class AdvancedPreferences {
         else if (value instanceof JSONObject) put(key, (JSONObject)value);
         else if (value instanceof JSONArray) put(key, (JSONArray)value);
         else put(key, mGson.toJson(value));
+        return mEditor;
     }
 
     public SharedPreferences.Editor getEditor() {

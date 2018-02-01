@@ -18,7 +18,9 @@ ext {
     servicesVersion = '9.8.0'
 
     // Libraries
-    gsonVersion = '2.6.2'               // https://github.com/google/gson
+    gsonVersion = '2.6.2'                   // https://github.com/google/gson
+    reactiveAndroidVersion = '1.2.1'        // https://github.com/ReactiveX/RxAndroid
+    reactiveJavaVersion = '1.1.6'           // https://github.com/ReactiveX/RxAndroid
 
     // Testing
     jUnitVersion = '4.12'
@@ -29,7 +31,9 @@ ext {
     libraryDependencies = [
             compile    : [
                     "com.android.support:appcompat-v7:${supportLibraryVersion}",
-                    "com.google.code.gson:gson:$gsonVersion"
+                    "com.google.code.gson:gson:$gsonVersion",
+                    "io.reactivex:rxandroid:${reactiveAndroidVersion}",
+                    "io.reactivex:rxjava:${reactiveJavaVersion}"
             ],
             testCompile: [
                     "junit:junit:${jUnitVersion}",
