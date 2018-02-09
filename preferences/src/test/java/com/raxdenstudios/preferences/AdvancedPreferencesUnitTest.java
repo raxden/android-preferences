@@ -127,10 +127,10 @@ public class AdvancedPreferencesUnitTest {
     public void testObjectPreference() throws Exception {
         TestObject o = new TestObject("test", "value");
 
-        mPreferences.put("keyObject", o);
+        mPreferences.put(TestObject.class.getSimpleName(), o);
         mPreferences.commit();
 
-        Assert.assertTrue(mPreferences.get("keyObject", TestObject.class, null).compareTo(o) == 0);
+        Assert.assertTrue(mPreferences.get(TestObject.class.getSimpleName(), TestObject.class, null).compareTo(o) == 0);
     }
 
     private static class TestObject implements Comparable<TestObject> {
