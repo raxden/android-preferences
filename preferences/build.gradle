@@ -1,7 +1,6 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
 
-group = "com.raxdenstudios"
+group = "com.raxdenstudios.preferences"
 version = VERSION_NAME
 
 android {
@@ -17,10 +16,14 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: '*.jar')
+    implementation fileTree(include: '*.jar', dir: 'libs')
 
-    compile libraryDependencies.compile
-    testCompile libraryDependencies.testCompile
+    implementation deps.preferences.implementation
+    api deps.preferences.api
+    annotationProcessor deps.preferences.annotationProcessor
+    compileOnly deps.preferences.compileOnly
+    testImplementation deps.preferences.testImplementation
+    androidTestImplementation deps.preferences.androidTestImplementation
 }
 
 apply from: '../buildSystem/commons.gradle'

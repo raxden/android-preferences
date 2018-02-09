@@ -11,9 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
-import org.robolectric.RobolectricGradleTestRunner;
+import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
-import org.w3c.dom.Text;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -21,7 +20,7 @@ import java.util.Set;
 /**
  * Created by agomez on 18/02/2016.
  */
-@RunWith(RobolectricGradleTestRunner.class)
+@RunWith(RobolectricTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 21)
 public class AdvancedPreferencesUnitTest {
 
