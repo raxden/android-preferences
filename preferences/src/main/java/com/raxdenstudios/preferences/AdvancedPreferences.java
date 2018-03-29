@@ -27,15 +27,15 @@ public class AdvancedPreferences {
     private Gson mGson = new Gson();
 
     public AdvancedPreferences(Context context) {
-        mSettings = PreferenceManager.getDefaultSharedPreferences(context);
-        mEditor = mSettings.edit();
+        this(PreferenceManager.getDefaultSharedPreferences(context));
     }
 
     public AdvancedPreferences(Context context, String name, int mode) {
-        if (name == null || name.equals("")) {
-            name = "defaultSharePreferences";
-        }
-        mSettings = context.getSharedPreferences(name, mode);
+        this(context.getSharedPreferences(name == null || name.equals("") ? "defaultSharePreferences" : name, mode));
+    }
+
+    public AdvancedPreferences(SharedPreferences settings) {
+        mSettings = settings;
         mEditor = mSettings.edit();
     }
 
