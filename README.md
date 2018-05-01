@@ -3,7 +3,7 @@ Android Preferences
 
 Android Preferences is a component to android that allow the developers put objects in SharedPreferences using Google Json Library. Works on Android 4.1 (API level 16) and upwards.
 
-[![Release](https://img.shields.io/github/tag/raxden/AndroidPreferences.svg?label=Download)](https://jitpack.io/#raxden/AndroidPreferences/)
+[![Release](https://img.shields.io/github/tag/raxden/android-preferences.svg?label=Download)](https://jitpack.io/#raxden/android-preferences/)
 [![API](https://img.shields.io/badge/API-16%2B-green.svg?style=flat)](https://android-arsenal.com/api?level=16)
 
 ## Usage
@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-	    compile 'com.github.raxden:AndroidPreferences:3.0.3@aar'
+	    compile 'com.github.raxden:android-preferences:3.0.3@aar'
 	    
         compile 'com.google.code.gson:gson:2.+'  //you can override Gson version if you need
 }
@@ -35,18 +35,14 @@ dependencies {
 
 <dependency>
 	    <groupId>com.github.raxden</groupId>
-	    <artifactId>AndroidPreferences</artifactId>
+	    <artifactId>android-preferences</artifactId>
 	    <version>3.0.3</version>
 </dependency>
 ```
 
 **3. clone whole repository**
  - Open your **commandline-input** and navigate to your desired destination folder (where you want to put the library)
- - Use the command `git clone https://github.com/raxden/AndroidPreferences.git` to download the full AndroidPreferences repository to your computer (this includes the folder of the library project as well as the example project)
-
-### Documentation 
-
-For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidPreferences/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidPreferences/3.0.3/javadoc/).
+ - Use the command `git clone https://github.com/raxden/android-preferences.git` to download the full android-preferences repository to your computer (this includes the folder of the library project as well as the example project)
 
 ## LICENSE
 
