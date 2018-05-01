@@ -1,4 +1,7 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 
 group = "com.raxdenstudios.preferences"
 version = VERSION_NAME
@@ -13,18 +16,26 @@ android {
 
         consumerProguardFiles 'proguard-rules.pro'
     }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(include: '*.jar', dir: 'libs')
 
-    implementation deps.preferences.implementation
-    api deps.preferences.api
-    annotationProcessor deps.preferences.annotationProcessor
-    compileOnly deps.preferences.compileOnly
-    testImplementation deps.preferences.testImplementation
-    androidTestImplementation deps.preferences.androidTestImplementation
+    implementation deps.library.implementation
+    api deps.library.api
+    annotationProcessor deps.library.annotationProcessor
+    kapt deps.library.kapt
+    compileOnly deps.library.compileOnly
+    testImplementation deps.library.testImplementation
+    androidTestImplementation deps.library.androidTestImplementation
 }
-
-apply from: '../buildSystem/commons.gradle'
-apply from: 'build_javadoc.gradle'
