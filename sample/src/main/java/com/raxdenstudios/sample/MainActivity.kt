@@ -1,7 +1,7 @@
 package com.raxdenstudios.sample
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.raxdenstudios.preferences.AdvancedPreferences
 
 class MainActivity : AppCompatActivity() {

@@ -16,11 +16,9 @@ class AdvancedPreferences(sharedPreferences: SharedPreferences, gson: Gson) {
     private val editor: SharedPreferences.Editor = sharedPreferences.edit()
     private val gson: Gson = gson
 
-
     constructor(context: Context, gson: Gson = Gson()) : this(PreferenceManager.getDefaultSharedPreferences(context), gson)
 
     constructor(context: Context, name: String = "defaultSharePreferences", mode: Int = Context.MODE_PRIVATE, gson: Gson = Gson()) : this(context.getSharedPreferences(name, mode), gson)
-
 
     fun contains(key: String): Boolean = sharedPreferences.contains(key)
 
@@ -46,18 +44,14 @@ class AdvancedPreferences(sharedPreferences: SharedPreferences, gson: Gson) {
 
     fun get(key: String, defaultValue: Set<String>): Set<String> = sharedPreferences.getStringSet(key, defaultValue)
 
-    fun get(key: String, defaultValue: JSONObject): JSONObject {
-        return sharedPreferences.getString(key, null)?.let { JSONObject(it) } ?: defaultValue
-    }
+    fun get(key: String, defaultValue: JSONObject): JSONObject = sharedPreferences.getString(key, null)?.let { JSONObject(it) }
+            ?: defaultValue
 
-    fun get(key: String, defaultValue: JSONArray): JSONArray {
-        return sharedPreferences.getString(key, null)?.let { JSONArray(it) } ?: defaultValue
-    }
+    fun get(key: String, defaultValue: JSONArray): JSONArray = sharedPreferences.getString(key, null)?.let { JSONArray(it) }
+            ?: defaultValue
 
-    fun <T : Any> get(key: String, classType: Class<T>, defaultValue: T): T {
-        return sharedPreferences.getString(key, null)?.let { gson.fromJson(it, classType) }
-                ?: defaultValue
-    }
+    fun <T : Any> get(key: String, classType: Class<T>, defaultValue: T): T = sharedPreferences.getString(key, null)?.let { gson.fromJson(it, classType) }
+            ?: defaultValue
 
     fun put(key: String, value: Int): SharedPreferences.Editor = editor.putInt(key, value)
 

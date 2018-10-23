@@ -4,13 +4,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-<<<<<<< HEAD
     compileSdkVersion rootProject.ext.compileSdkVersion
-=======
-
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
->>>>>>> master
 
     defaultConfig {
         applicationId "com.raxdenstudios.preferences.sample"
@@ -32,32 +26,18 @@ android {
     androidExtensions {
         experimental = true
     }
-<<<<<<< HEAD
 }
 
 repositories {
     maven { url "https://jitpack.io" }
-=======
->>>>>>> master
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-<<<<<<< HEAD
 
     implementation project(':preferences')
 
     rootProject.appDependencies.each {
         add(it.configuration, it.dependency, it.options)
     }
-=======
-    implementation project(':preferences')
-
-    implementation deps.sample.implementation
-    annotationProcessor deps.sample.annotationProcessor
-    kapt deps.sample.kapt
-    compileOnly deps.sample.compileOnly
-    testImplementation deps.sample.testImplementation
-    androidTestImplementation deps.sample.androidTestImplementation
->>>>>>> master
 }
