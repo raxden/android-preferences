@@ -1,0 +1,52 @@
+ext {
+
+    // Android dependencies
+    kotlinVersion = '1.2.30'
+    supportLibraryVersion = '27.1.0'
+    constraintsLayoutVersion = '1.0.2'
+    gsonVersion = '2.6.2'
+
+    // Testing
+    junitVersion = '4.12'
+    runnerVersion = '1.0.2'
+    espressoVersion = '3.0.2'
+    robolectricVersion = '3.8'
+
+    deps = [
+            library: [
+                    implementation : [],
+                    api: [
+                            "com.google.code.gson:gson:${gsonVersion}"
+                    ],
+                    annotationProcessor : [],
+                    kapt : [],
+                    compileOnly : [],
+                    testImplementation : [
+                            "junit:junit:${junitVersion}",
+                            "org.robolectric:robolectric:${robolectricVersion}"
+                    ],
+                    androidTestImplementation : [
+                            "com.android.support.test:runner:${runnerVersion}",
+                            "com.android.support.test.espresso:espresso-core:${espressoVersion}"
+                    ]
+            ],
+            sample: [
+                    implementation : [
+                            "com.android.support:appcompat-v7:${supportLibraryVersion}",
+                            "com.android.support.constraint:constraint-layout:${constraintsLayoutVersion}",
+                            "org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlinVersion}"
+                    ],
+                    annotationProcessor : [],
+                    kapt : [],
+                    compileOnly : [],
+                    testImplementation : [
+                            "junit:junit:${junitVersion}",
+                    ],
+                    androidTestImplementation : [
+                            "com.android.support.test:runner:${runnerVersion}",
+                            "com.android.support.test.espresso:espresso-core:${espressoVersion}"
+                    ]
+            ]
+    ]
+
+}

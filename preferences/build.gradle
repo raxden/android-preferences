@@ -19,11 +19,21 @@ android {
     androidExtensions {
         experimental = true
     }
+<<<<<<< HEAD
+=======
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+>>>>>>> master
 }
 
 dependencies {
     implementation fileTree(include: '*.jar', dir: 'libs')
 
+<<<<<<< HEAD
     rootProject.libDependencies.each {
         add(it.configuration, it.dependency, it.options)
     }
@@ -31,3 +41,13 @@ dependencies {
 
 apply from: '../buildSystem/commons.gradle'
 apply from: 'build_javadoc.gradle'
+=======
+    implementation deps.library.implementation
+    api deps.library.api
+    annotationProcessor deps.library.annotationProcessor
+    kapt deps.library.kapt
+    compileOnly deps.library.compileOnly
+    testImplementation deps.library.testImplementation
+    androidTestImplementation deps.library.androidTestImplementation
+}
+>>>>>>> master
