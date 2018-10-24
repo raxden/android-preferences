@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-	    compile 'com.github.raxden:AndroidPreferences:3.0.6@aar'
+	    compile 'com.github.raxden:AndroidPreferences:3.0.7@aar'
 	    
         compile 'com.google.code.gson:gson:2.+'  //you can override Gson version if you need
 }
@@ -36,7 +36,7 @@ dependencies {
 <dependency>
 	    <groupId>com.github.raxden</groupId>
 	    <artifactId>AndroidPreferences</artifactId>
-	    <version>3.0.6</version>
+	    <version>3.0.7</version>
 </dependency>
 ```
 
@@ -46,7 +46,7 @@ dependencies {
 
 ### Documentation 
 
-For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidPreferences/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidPreferences/3.0.6/javadoc/).
+For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidPreferences/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidPreferences/3.0.7/javadoc/).
 
 ## LICENSE
 

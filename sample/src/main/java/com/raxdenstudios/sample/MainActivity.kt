@@ -1,7 +1,7 @@
 package com.raxdenstudios.sample
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.support.v7.app.AppCompatActivity
 import com.raxdenstudios.preferences.AdvancedPreferences
 
 class MainActivity : AppCompatActivity() {
@@ -13,6 +13,5 @@ class MainActivity : AppCompatActivity() {
         val akp = AdvancedPreferences(this)
         akp.get(key = "", classType = Object::class.java, defaultValue = Object() )
         akp.get("", Object::class.java, Object())
-
     }
 }
