@@ -69,7 +69,7 @@ class AdvancedPreferences(sharedPreferences: SharedPreferences, gson: Gson) {
 
     fun put(key: String, value: JSONArray): SharedPreferences.Editor = editor.putString(key, value.toString())
 
-    fun put(key: String, value: Any): SharedPreferences.Editor {
+    fun put(key: String, value: Any?): SharedPreferences.Editor {
         when (value) {
             is Int -> editor.putInt(key, value)
             is String -> editor.putString(key, value)
