@@ -1,9 +1,9 @@
 package com.raxdenstudios.preferences
 
 import android.app.Activity
-import junit.framework.Assert
 import org.json.JSONArray
 import org.json.JSONObject
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
