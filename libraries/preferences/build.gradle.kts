@@ -3,18 +3,6 @@ plugins {
   id("com.raxdenstudios.android-publish")
 }
 
-android {
-
-  compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-  }
-
-  kotlinOptions {
-    jvmTarget = "1.8"
-  }
-}
-
 publishMavenCentral {
   pomUrl = "https://github.com/raxden/android-preferences"
   pomName = "AdvancedPreferences"
