@@ -38,12 +38,22 @@ before_install:
   - yes | sdkmanager "platforms;android-29"
   - chmod +x gradlew
 
-script:
-  - ./gradlew build
+stages:
+  - test
+  - build
+  - publish
 
-deploy: 
-  provider: script
-  script: ./gradlew publish
-  skip_cleanup: true
-  on:
-    tags: true
+jobs:
+  include:
+    - stage: test
+      name: "test"
+      if: tag =~ ^release-[0-9]+\.[0-9]+\.[0-9]+$
+      script: ./gradlew detekt testReleaseUnitTest
+    - stage: build
+      name: "build"
+      if: tag =~ ^release-[0-9]+\.[0-9]+\.[0-9]+$
+      script: ./gradlew clean build
+    - stage: publish
+      name: "publish"
+      if: tag =~ ^release-[0-9]+\.[0-9]+\.[0-9]+$
+      script: ./gradlew publish
