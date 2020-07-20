@@ -2,7 +2,7 @@ package com.raxdenstudios.preferences
 
 import android.content.SharedPreferences
 
-public fun SharedPreferences.edit(
+fun SharedPreferences.edit(
   commit: Boolean = false,
   action: SharedPreferences.Editor.() -> Unit
 ) {
@@ -15,7 +15,7 @@ public fun SharedPreferences.edit(
   }
 }
 
-public fun AdvancedPreferences.edit(
+fun AdvancedPreferences.edit(
   commit: Boolean = false,
   action: AdvancedPreferences.Editor.() -> Unit
 ) {
