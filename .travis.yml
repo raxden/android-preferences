@@ -50,5 +50,5 @@ jobs:
       script: ./gradlew detekt testReleaseUnitTest
     - stage: publish
       name: "publish"
-      if: tag =~ ^[0-9]+\.[0-9]+\.[0-9]+$
+      if: tag =~ ^release-[0-9]+\.[0-9]+\.[0-9]+$
       script: ./gradlew clean build publish
