@@ -40,7 +40,6 @@ before_install:
 
 stages:
   - test
-  - build
   - publish
 
 jobs:
@@ -49,11 +48,7 @@ jobs:
       name: "test"
       if: tag =~ ^release-[0-9]+\.[0-9]+\.[0-9]+$
       script: ./gradlew detekt testReleaseUnitTest
-    - stage: build
-      name: "build"
-      if: tag =~ ^release-[0-9]+\.[0-9]+\.[0-9]+$
-      script: ./gradlew clean build
     - stage: publish
       name: "publish"
       if: tag =~ ^release-[0-9]+\.[0-9]+\.[0-9]+$
-      script: ./gradlew publish
+      script: ./gradlew clean build publish
