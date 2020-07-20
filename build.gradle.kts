@@ -17,7 +17,6 @@ plugins {
 }
 
 scmVersion {
-
 }
 
 val libraryVersion: String = scmVersion.version
