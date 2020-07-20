@@ -46,6 +46,7 @@ jobs:
   include:
     - stage: test
       name: "test"
+      if: branch = master
       script: ./gradlew detekt testReleaseUnitTest
     - stage: publish
       name: "publish"
