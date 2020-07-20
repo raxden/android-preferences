@@ -12,8 +12,15 @@ buildscript {
 }
 
 plugins {
-  id("io.gitlab.arturbosch.detekt") version("1.10.0")
+  id("io.gitlab.arturbosch.detekt") version ("1.10.0")
+  id("pl.allegro.tech.build.axion-release") version ("1.12.0")
 }
+
+scmVersion {
+
+}
+
+val libraryVersion: String = scmVersion.version
 
 detekt {
   toolVersion = "1.10.0"
@@ -24,7 +31,7 @@ subprojects {
     plugin("io.gitlab.arturbosch.detekt")
   }
   group = "com.raxdenstudios"
-  version = "0.1.0"
+  version = libraryVersion
 }
 
 allprojects {
