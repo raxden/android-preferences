@@ -7,7 +7,7 @@ buildscript {
     maven("https://plugins.gradle.org/m2/")
   }
   dependencies {
-    classpath("com.raxdenstudios:android-plugins:0.15")
+    classpath("com.raxdenstudios:android-plugins:0.16")
   }
 }
 
