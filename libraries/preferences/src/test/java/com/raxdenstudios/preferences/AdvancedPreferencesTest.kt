@@ -187,5 +187,4 @@ class AdvancedPreferencesTest {
       else -> -1
     }
   }
-
 }
