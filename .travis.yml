@@ -38,6 +38,9 @@ before_install:
   - yes | sdkmanager "platforms;android-29"
   - chmod +x gradlew
 
+notifications:
+  slack: raxdenstudiosgroup:KXjKJVZk6IQTZV1ezObRFaIG
+
 stages:
   - test
   - publish
