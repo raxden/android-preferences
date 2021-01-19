@@ -6,37 +6,38 @@ buildscript {
     jcenter()
     maven("https://plugins.gradle.org/m2/")
   }
-  dependencies {
-    classpath("com.raxdenstudios:android-plugins:0.16")
-  }
 }
 
 plugins {
-  id("io.gitlab.arturbosch.detekt") version ("1.10.0")
-  id("pl.allegro.tech.build.axion-release") version ("1.12.0")
-}
-
-scmVersion {
-}
-
-val libraryVersion: String = scmVersion.version
-
-detekt {
-  toolVersion = "1.10.0"
+  id("io.gitlab.arturbosch.detekt").version("1.15.0")
 }
 
 subprojects {
   apply {
     plugin("io.gitlab.arturbosch.detekt")
   }
+  detekt {
+    // To create detekt.yml -> gradle detektGenerateConfig
+    toolVersion = "1.15.0"
+    config = files("${rootProject.projectDir}/config/detekt/detekt.yml")
+    buildUponDefaultConfig = true
+
+    reports {
+      html {
+        enabled = true
+        destination = file("${rootProject.projectDir}/reports/detekt.html")
+      }
+    }
+  }
   group = "com.raxdenstudios"
-  version = libraryVersion
+  version = "0.1.0"
 }
 
 allprojects {
   repositories {
     google()
     jcenter()
+    maven("https://jitpack.io")
   }
 }
 

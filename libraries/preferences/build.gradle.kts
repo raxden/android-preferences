@@ -1,18 +1,18 @@
+import com.raxdenstudios.versioning.Credentials
+
 plugins {
+  id("com.raxdenstudios.app-version")
   id("com.raxdenstudios.android-library")
-  id("com.raxdenstudios.android-publish")
 }
 
-publishMavenCentral {
-  pomUrl = "https://github.com/raxden/android-preferences"
-  pomName = "AdvancedPreferences"
-  pomDescription = "Improve shared preferences"
-  pomDeveloperId = "raxden"
-  pomDeveloperName = "Ángel Gómez"
-  pomDeveloperEmail = "raxden.dev@gmail.com"
-  pomScmConnection = "scm:git:github.com/raxden/android-preferences.git"
-  pomScmDeveloperConnection = "scm:git:ssh://github.com/raxden/android-preferences.git"
-  pomScmUrl = "https://github.com/raxden/android-preferences/tree/master"
+versioning {
+  val gitUsername: String? by project
+  val gitPassword: String? by project
+
+  credentials = Credentials(
+    user = gitUsername ?: System.getenv("GIT_USER"),
+    password = gitPassword ?: System.getenv("GIT_PASSWORD")
+  )
 }
 
 dependencies {

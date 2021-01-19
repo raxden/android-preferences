@@ -1,3 +1,7 @@
+object ApplicationId {
+  const val id = "com.raxdenstudios.preferences"
+}
+
 object Modules {
   const val libraryPreferences = ":libraries:preferences"
 
@@ -5,6 +9,10 @@ object Modules {
 }
 
 object Versions {
+  const val minSdk = 21
+  const val compileSdk = 29
+  const val targetSdk = 29
+
   const val kotlin = "1.3.72"
 
   const val gson = "2.8.6"                      // https://github.com/google/gson
