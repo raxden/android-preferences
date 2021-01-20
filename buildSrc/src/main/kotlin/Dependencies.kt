@@ -13,7 +13,7 @@ object Versions {
   const val compileSdk = 29
   const val targetSdk = 29
 
-  const val kotlin = "1.3.72"
+  const val kotlin = "1.4.21"
 
   const val gson = "2.8.6"                      // https://github.com/google/gson
   const val preferences = "1.1.1"
@@ -25,7 +25,8 @@ object Versions {
 }
 
 object KotlinLibraries {
-  const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
+  const val kotlinBom = "org.jetbrains.kotlin:kotlin-bom:${Versions.kotlin}"
+  const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7"
 }
 
 object AndroidLibraries {

@@ -5,5 +5,6 @@ plugins {
 dependencies {
   implementation(project(Modules.libraryPreferences))
 
-  implementation(KotlinLibraries.kotlin)
+  implementation(platform(KotlinLibraries.kotlinBom))
+  implementation(KotlinLibraries.kotlinStdlib)
 }

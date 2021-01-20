@@ -49,5 +49,5 @@ jobs:
   include:
     - stage: test
       name: "test"
-      if: branch = master AND (type = push OR type = pull_request)
-      script: ./gradlew --console=plain detekt libraries:preferences:testReleaseUnitTest
+      if: branch = master AND type = pull_request
+      script: ./gradlew --console=plain libraries:preferences:detekt libraries:preferences:testReleaseUnitTest

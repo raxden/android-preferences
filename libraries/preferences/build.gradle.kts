@@ -1,22 +1,35 @@
-import com.raxdenstudios.versioning.Credentials
-
 plugins {
-  id("com.raxdenstudios.app-version")
+  id("com.raxdenstudios.android-versioning")
   id("com.raxdenstudios.android-library")
+  `maven-publish`
+}
+
+group = "com.raxdenstudios"
+
+afterEvaluate {
+  publishing {
+    publications {
+      // Creates a Maven publication called "release".
+      create<MavenPublication>("release") {
+        // Applies the component for the release build variant.
+        from(components["release"])
+
+        // You can then customize attributes of the publication as shown below.
+        groupId = project.group.toString()
+        artifactId = project.name
+        version = project.version.toString()
+      }
+    }
+  }
 }
 
 versioning {
-  val gitUsername: String? by project
-  val gitPassword: String? by project
-
-  credentials = Credentials(
-    user = gitUsername ?: System.getenv("GIT_USER"),
-    password = gitPassword ?: System.getenv("GIT_PASSWORD")
-  )
+  versionFilePath = "./config/version.properties"
 }
 
 dependencies {
-  implementation(KotlinLibraries.kotlin)
+  implementation(platform(KotlinLibraries.kotlinBom))
+  implementation(KotlinLibraries.kotlinStdlib)
   api(AndroidLibraries.preferences)
   api(Libraries.gson)
 

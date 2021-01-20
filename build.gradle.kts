@@ -6,10 +6,14 @@ buildscript {
     jcenter()
     maven("https://plugins.gradle.org/m2/")
   }
+  dependencies {
+    classpath("com.raxdenstudios:android-plugins:0.20")
+  }
 }
 
 plugins {
   id("io.gitlab.arturbosch.detekt").version("1.15.0")
+  id("project-report")
 }
 
 subprojects {
@@ -29,8 +33,6 @@ subprojects {
       }
     }
   }
-  group = "com.raxdenstudios"
-  version = "0.1.0"
 }
 
 allprojects {
