@@ -1,2 +1,2 @@
-include(":libraries:preferences")
+include(":libraries:advanced-preferences")
 include(":sample")

@@ -3,7 +3,7 @@ object ApplicationId {
 }
 
 object Modules {
-  const val libraryPreferences = ":libraries:preferences"
+  const val libraryPreferences = ":libraries:advanced-preferences"
 
   const val sample = ":sample"
 }

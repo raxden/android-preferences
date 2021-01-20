@@ -1,30 +1,28 @@
 plugins {
   id("com.raxdenstudios.android-versioning")
   id("com.raxdenstudios.android-library")
-  `maven-publish`
+  id("com.raxdenstudios.android-publishing-jcenter")
 }
 
 group = "com.raxdenstudios"
 
-afterEvaluate {
-  publishing {
-    publications {
-      // Creates a Maven publication called "release".
-      create<MavenPublication>("release") {
-        // Applies the component for the release build variant.
-        from(components["release"])
-
-        // You can then customize attributes of the publication as shown below.
-        groupId = project.group.toString()
-        artifactId = project.name
-        version = project.version.toString()
-      }
-    }
-  }
-}
-
 versioning {
   versionFilePath = "./config/version.properties"
+}
+
+publishJCenter {
+  name = "AdvancedPreferences"
+  description = "Improve shared preferences"
+  username = "raxden"
+  developerName = "Ángel Gómez"
+  email = "raxden.dev@gmail.com"
+  website = "https://github.com/raxden/android-preferences"
+  bintray.apply {
+    val bintrayKey: String? by project
+    val bintrayRepository: String? by project
+    key = bintrayKey ?: System.getenv("BINTRAY_KEY") ?: ""
+    repository = bintrayRepository ?: System.getenv("BINTRAY_REPOSITORY") ?: ""
+  }
 }
 
 dependencies {
