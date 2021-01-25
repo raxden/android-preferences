@@ -1,28 +1,30 @@
-plugins {
-  id("com.raxdenstudios.android-versioning")
-  id("com.raxdenstudios.android-library")
-  id("com.raxdenstudios.android-publishing-jcenter")
-}
+import com.raxdenstudios.publish.model.BintrayRepository
 
-group = "com.raxdenstudios"
+plugins {
+  id("com.raxdenstudios.version-library")
+  id("com.raxdenstudios.android-library")
+  id("com.raxdenstudios.publish-library")
+}
 
 versioning {
   versionFilePath = "./config/version.properties"
+  group = "com.raxdenstudios"
 }
 
-publishJCenter {
+val bintrayKey: String? by project
+val bintrayRepository: String? by project
+
+publishLibrary {
   name = "AdvancedPreferences"
   description = "Improve shared preferences"
+  web = "https://github.com/raxden/android-preferences"
   username = "raxden"
   developerName = "Ángel Gómez"
-  email = "raxden.dev@gmail.com"
-  website = "https://github.com/raxden/android-preferences"
-  bintray.apply {
-    val bintrayKey: String? by project
-    val bintrayRepository: String? by project
-    key = bintrayKey ?: System.getenv("BINTRAY_KEY") ?: ""
-    repository = bintrayRepository ?: System.getenv("BINTRAY_REPOSITORY") ?: ""
-  }
+  developerEmail = "raxden.dev@gmail.com"
+  repository = BintrayRepository(
+    key = bintrayKey ?: System.getenv("BINTRAY_KEY") ?: "",
+    name = bintrayRepository ?: System.getenv("BINTRAY_REPOSITORY") ?: ""
+  )
 }
 
 dependencies {
