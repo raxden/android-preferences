@@ -7,32 +7,20 @@ buildscript {
     maven("https://plugins.gradle.org/m2/")
   }
   dependencies {
-    classpath("com.raxdenstudios:android-plugins:0.31")
+    classpath("com.raxdenstudios:android-plugins:0.32")
   }
 }
 
 plugins {
-  id("io.gitlab.arturbosch.detekt").version("1.15.0")
   id("project-report")
+  id("io.codearte.nexus-staging").version("0.22.0")
 }
 
-subprojects {
-  apply {
-    plugin("io.gitlab.arturbosch.detekt")
-  }
-  detekt {
-    // To create detekt.yml -> gradle detektGenerateConfig
-    toolVersion = "1.15.0"
-    config = files("${rootProject.projectDir}/config/detekt/detekt.yml")
-    buildUponDefaultConfig = true
-
-    reports {
-      html {
-        enabled = true
-        destination = file("${rootProject.projectDir}/reports/detekt.html")
-      }
-    }
-  }
+nexusStaging {
+  packageGroup = "com.raxdenstudios"
+  stagingProfileId = "6a4b91871b51b"
+  username = "4GQ55ANT"
+  password = "0I2rlYT4nM/1ZFuJO9cVo6e05RNrQhakvDFmPWJh/fJl"
 }
 
 allprojects {

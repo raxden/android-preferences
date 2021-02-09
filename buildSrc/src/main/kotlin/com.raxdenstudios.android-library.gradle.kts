@@ -1,5 +1,6 @@
 plugins {
   id("com.android.library")
+  id("com.raxdenstudios.android-detekt")
   id("kotlin-android")
   id("kotlin-kapt")
 }
