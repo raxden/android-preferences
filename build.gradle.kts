@@ -1,5 +1,3 @@
-import io.gitlab.arturbosch.detekt.detekt
-
 buildscript {
   repositories {
     google()
@@ -16,11 +14,15 @@ plugins {
   id("io.codearte.nexus-staging").version("0.22.0")
 }
 
+val nexusId: String? by project
+val nexusUsername: String? by project
+val nexusPassword: String? by project
+
 nexusStaging {
   packageGroup = "com.raxdenstudios"
-  stagingProfileId = "6a4b91871b51b"
-  username = "4GQ55ANT"
-  password = "0I2rlYT4nM/1ZFuJO9cVo6e05RNrQhakvDFmPWJh/fJl"
+  stagingProfileId = nexusId ?: System.getenv("OSSRH_ID") ?: ""
+  username = nexusUsername ?: System.getenv("OSSRH_USERNAME") ?: ""
+  password = nexusPassword ?: System.getenv("OSSRH_PASSWORD") ?: ""
 }
 
 allprojects {
