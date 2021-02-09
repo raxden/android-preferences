@@ -3,7 +3,7 @@ object ApplicationId {
 }
 
 object Modules {
-  const val libraryPreferences = ":libraries:advanced-preferences"
+  const val libraryPreferences = ":libraries:preferences"
 
   const val sample = ":sample"
 }
@@ -14,6 +14,8 @@ object Versions {
   const val targetSdk = 29
 
   const val kotlin = "1.4.21"
+  const val kotlinCore = "1.3.2"
+  const val kotlinPreferences = "1.1.1"
 
   const val gson = "2.8.6"                      // https://github.com/google/gson
   const val preferences = "1.1.1"
@@ -25,13 +27,9 @@ object Versions {
 }
 
 object KotlinLibraries {
-  const val kotlinBom = "org.jetbrains.kotlin:kotlin-bom:${Versions.kotlin}"
-  const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7"
-}
-
-object AndroidLibraries {
-  // ANDROID
-  const val preferences = "androidx.preference:preference-ktx:${Versions.preferences}"
+  const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+  const val kotlinCore = "androidx.core:core-ktx:${Versions.kotlinCore}"
+  const val kotlinPreferences = "androidx.preference:preference-ktx:${Versions.kotlinPreferences}"
 }
 
 object Libraries {

@@ -1,5 +1,3 @@
-import com.raxdenstudios.publish.model.BintrayRepository
-
 plugins {
   id("com.raxdenstudios.version-library")
   id("com.raxdenstudios.android-library")
@@ -11,26 +9,19 @@ versioning {
   group = "com.raxdenstudios"
 }
 
-val bintrayKey: String? by project
-val bintrayRepository: String? by project
-
 publishLibrary {
   name = "AdvancedPreferences"
   description = "Improve shared preferences"
-  web = "https://github.com/raxden/android-preferences"
-  username = "raxden"
+  url = "https://github.com/raxden/android-preferences"
+  developerId = "raxden"
   developerName = "Ángel Gómez"
   developerEmail = "raxden.dev@gmail.com"
-  repository = BintrayRepository(
-    key = bintrayKey ?: System.getenv("BINTRAY_KEY") ?: "",
-    name = bintrayRepository ?: System.getenv("BINTRAY_REPOSITORY") ?: ""
-  )
 }
 
 dependencies {
-  implementation(platform(KotlinLibraries.kotlinBom))
   implementation(KotlinLibraries.kotlinStdlib)
-  api(AndroidLibraries.preferences)
+  implementation(KotlinLibraries.kotlinCore)
+  api(KotlinLibraries.kotlinPreferences)
   api(Libraries.gson)
 
   testImplementation(TestLibraries.archCoreTest)

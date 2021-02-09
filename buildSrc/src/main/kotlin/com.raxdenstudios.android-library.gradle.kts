@@ -2,7 +2,6 @@ plugins {
   id("com.android.library")
   id("kotlin-android")
   id("kotlin-kapt")
-  id("kotlin-android-extensions")
 }
 
 android {
@@ -26,10 +25,6 @@ android {
     getByName("debug") {
       isMinifyEnabled = false
     }
-  }
-
-  androidExtensions {
-    isExperimental = true
   }
 
   testOptions {

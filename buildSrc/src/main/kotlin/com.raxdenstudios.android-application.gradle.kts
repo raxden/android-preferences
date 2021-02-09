@@ -2,7 +2,6 @@ plugins {
   id("com.android.application")
   id("kotlin-android")
   id("kotlin-kapt")
-  id("kotlin-android-extensions")
 }
 
 android {
@@ -35,10 +34,6 @@ android {
         "proguard-rules.pro"
       )
     }
-  }
-
-  androidExtensions {
-    isExperimental = true
   }
 
   buildFeatures {
