@@ -3,9 +3,9 @@ Android Preferences
 
 Android Preferences is a component to android that allow the developers put objects in SharedPreferences using Google Json Library. Works on Android 4.1 (API level 16) and upwards.
 
+<a href='https://github.com/raxden/android-preferences/actions?query=Continuous+Delivery'><img src='https://github.com/raxden/android-preferences/workflows/Snapshot/badge.svg'></a>
+[![codecov.io](http://codecov.io/github/ReactiveX/RxJava/coverage.svg?branch=3.x)](https://codecov.io/gh/ReactiveX/RxJava/branch/3.x)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.raxdenstudios/preferences/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.raxdenstudios/preferences)
-[![Release](https://img.shields.io/github/tag/raxden/AndroidPreferences.svg?label=Download)](https://jitpack.io/#raxden/AndroidPreferences/)
-[![API](https://img.shields.io/badge/API-16%2B-green.svg?style=flat)](https://android-arsenal.com/api?level=16)
 
 ## Usage
 
