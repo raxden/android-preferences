@@ -1,31 +1,3 @@
-object ApplicationId {
-  const val id = "com.raxdenstudios.preferences"
-}
-
-object Modules {
-  const val libraryPreferences = ":libraries:preferences"
-
-  const val sample = ":sample"
-}
-
-object Versions {
-  const val minSdk = 21
-  const val compileSdk = 29
-  const val targetSdk = 29
-
-  const val kotlin = "1.4.21"
-  const val kotlinCore = "1.3.2"
-  const val kotlinPreferences = "1.1.1"
-
-  const val gson = "2.8.6"                      // https://github.com/google/gson
-  const val preferences = "1.1.1"
-
-  const val archCoreTest = "2.0.0"
-  const val atsl = "1.1.0"
-
-  const val robolectric = "4.3.1"
-}
-
 object KotlinLibraries {
   const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
   const val kotlinCore = "androidx.core:core-ktx:${Versions.kotlinCore}"
