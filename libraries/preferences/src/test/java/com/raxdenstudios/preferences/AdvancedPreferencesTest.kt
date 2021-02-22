@@ -17,11 +17,13 @@ import org.robolectric.annotation.Config
 class AdvancedPreferencesTest {
 
   private lateinit var defaultPreferences: AdvancedPreferences
+  private lateinit var privatePreferences: AdvancedPreferences
 
   @Before
   fun setUp() {
     val context: Context = ApplicationProvider.getApplicationContext()
     defaultPreferences = AdvancedPreferences.Default(context)
+    privatePreferences = AdvancedPreferences.Private(context)
   }
 
   @Test

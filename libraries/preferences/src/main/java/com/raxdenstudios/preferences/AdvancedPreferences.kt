@@ -41,6 +41,7 @@ sealed class AdvancedPreferences(
 
     fun clear(): Editor = sharedPreferencesEditor.clear().let { this }
 
+    @Suppress("UNCHECKED_CAST")
     fun put(key: String, value: Any): Editor = when (value) {
       is Int -> sharedPreferencesEditor.putInt(key, value)
       is String -> sharedPreferencesEditor.putString(key, value)
@@ -60,6 +61,7 @@ sealed class AdvancedPreferences(
 
   fun edit(): Editor = editor
 
+  @Suppress("UNCHECKED_CAST")
   fun get(key: String, defaultValue: Any): Any = when (defaultValue) {
     is Int -> sharedPreferences.getInt(key, defaultValue)
     is String -> sharedPreferences.getString(key, defaultValue) as String
@@ -67,7 +69,7 @@ sealed class AdvancedPreferences(
     is Float -> sharedPreferences.getFloat(key, defaultValue)
     is Long -> sharedPreferences.getLong(key, defaultValue)
     is Set<*> -> sharedPreferences.getStringSet(key, defaultValue as Set<String>) as Set<String>
-    is JSONObject -> JSONObject(sharedPreferences.getString(key, defaultValue.toString()))
+    is JSONObject -> JSONObject(sharedPreferences.getString(key, defaultValue.toString()) ?: "")
     is JSONArray -> JSONArray(sharedPreferences.getString(key, defaultValue.toString()))
     else -> sharedPreferences.getString(key, null)?.let {
       gson.fromJson(it, defaultValue::class.java)
