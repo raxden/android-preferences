@@ -1,49 +1,23 @@
 Android Preferences
 ==========
 
-Android Preferences is a component to android that allow the developers put objects in SharedPreferences using Google Json Library. Works on Android 4.1 (API level 16) and upwards.
-
 <a href='https://github.com/raxden/android-preferences/actions?query=Continuous+Delivery'><img src='https://github.com/raxden/android-preferences/workflows/Continuous%20Delivery/badge.svg'></a>
 [![codecov.io](https://codecov.io/gh/raxden/android-preferences/branch/configuration/graphs/badge.svg?branch=master)](https://codecov.io/gh/raxden/android-preferences/branch/master)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.raxdenstudios/preferences/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.raxdenstudios/preferences)
 
-## Usage
+Android Preferences is a component to android that allow the developers put objects in SharedPreferences using Google Json Library. Works on Android 4.1 (API level 16) and upwards.
 
-In order to use the library, there are 3 options:
+## Getting started
 
-**1. Gradle dependency**
+### Setting up the dependency
 
- - 	Add the following to your `build.gradle`:
- ```gradle
-repositories {
-	    maven { url "https://jitpack.io" }
-}
+The first step is to include Android Preferences into your project, for example, as a Gradle compile dependency:
 
-dependencies {
-	    compile 'com.github.raxden:AndroidPreferences:4.0.4@aar'
-	    
-        compile 'com.google.code.gson:gson:2.+'  //you can override Gson version if you need
-}
+```groovy
+implementation "com.raxdenstudios.preferences:x.y.z"
 ```
 
-**2. Maven**
-- Add the following to your `pom.xml`:
- ```xml
-<repository>
-       	<id>jitpack.io</id>
-	    <url>https://jitpack.io</url>
-</repository>
-
-<dependency>
-	    <groupId>com.github.raxden</groupId>
-	    <artifactId>AndroidPreferences</artifactId>
-	    <version>4.0.4</version>
-</dependency>
-```
-
-**3. clone whole repository**
- - Open your **commandline-input** and navigate to your desired destination folder (where you want to put the library)
- - Use the command `git clone https://github.com/raxden/AndroidPreferences.git` to download the full AndroidPreferences repository to your computer (this includes the folder of the library project as well as the example project)
+(Please replace `x`, `y` and `z` with the latest version numbers: [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.raxdenstudios/preferences/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.raxdenstudios/preferences))
 
 ### Documentation 
 
