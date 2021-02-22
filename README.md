@@ -19,10 +19,6 @@ implementation "com.raxdenstudios.preferences:x.y.z"
 
 (Please replace `x`, `y` and `z` with the latest version numbers: [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.raxdenstudios/preferences/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.raxdenstudios/preferences))
 
-### Documentation 
-
-For a **detailed documentation**, please have a look at the [**Wiki**](https://github.com/raxden/AndroidPreferences/wiki) or the [**Javadocs**](https://jitpack.io/com/github/raxden/AndroidPreferences/4.0.4/javadoc/).
-
 ## LICENSE
 
     Copyright 2015 Ángel Gómez
