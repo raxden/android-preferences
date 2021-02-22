@@ -25,66 +25,89 @@ class AdvancedPreferencesTest {
   }
 
   @Test
-  fun testInt() {
-    defaultPreferences.edit(true) { put("integer_key", 23) }
+  fun `persist a random value with apply`() {
+    defaultPreferences.edit { put("key", 23) }
+
     assertEquals(
       23,
-      defaultPreferences.get("integer_key", -1)
+      defaultPreferences.get("key", -1)
     )
   }
 
   @Test
-  fun testString() {
-    defaultPreferences.edit(true) { put("string_key", "test_23") }
+  fun `persist a random value with commit`() {
+    defaultPreferences.edit(true) { put("key", 23) }
+
+    assertEquals(
+      23,
+      defaultPreferences.get("key", -1)
+    )
+  }
+
+  @Test
+  fun `persist a integer value`() {
+    defaultPreferences.edit { put("key", 23) }
+
+    assertEquals(
+      23,
+      defaultPreferences.get("key", -1)
+    )
+  }
+
+  @Test
+  fun `persist a string value`() {
+    defaultPreferences.edit { put("key", "test_23") }
+
     assertEquals(
       "test_23",
-      defaultPreferences.get("string_key", "no_value")
+      defaultPreferences.get("key", "no_value")
     )
   }
 
   @Test
-  fun testBoolean() {
-    defaultPreferences.edit(true) { put("boolean_key", true) }
-    assertEquals(
-      true,
-      defaultPreferences.get("boolean_key", false)
-    )
-  }
+  fun `persist a float value`() {
+    defaultPreferences.edit { put("key", 23.0f) }
 
-  @Test
-  fun testFloat() {
-    defaultPreferences.edit(true) { put("float_key", 23.0f) }
     assertEquals(
       23.0f,
-      defaultPreferences.get("float_key", -0.1f)
+      defaultPreferences.get("key", -0.1f)
     )
   }
 
   @Test
-  fun testLong() {
-    defaultPreferences.edit(true) { put("long_key", 23L) }
+  fun `persist a boolean value`() {
+    defaultPreferences.edit { put("key", true) }
+
+    assertEquals(
+      true,
+      defaultPreferences.get("key", false)
+    )
+  }
+
+  @Test
+  fun `persist a long value`() {
+    defaultPreferences.edit { put("key", 23L) }
+
     assertEquals(
       23L,
-      defaultPreferences.get("long_key", -1L)
+      defaultPreferences.get("key", -1L)
     )
   }
 
   @Test
-  fun testSetString() {
-    defaultPreferences.edit(true) {
-      put("set_string_key", setOf("test_20", "test_21", "test_22", "test_23"))
-    }
+  fun `persist a set of values`() {
+    defaultPreferences.edit { put("set_key", setOf("test_20", "test_21", "test_22", "test_23")) }
+
     assertEquals(
       setOf("test_20", "test_21", "test_22", "test_23"),
-      defaultPreferences.get("set_string_key", emptySet<String>())
+      defaultPreferences.get("set_key", emptySet<String>())
     )
   }
 
   @Test
-  fun testJSONObject() {
-    defaultPreferences.edit(true) {
-      put("set_json_object", JSONObject("{\"key\": 23}"))
-    }
+  fun `persist a jsonObject value`() {
+    defaultPreferences.edit { put("set_json_object", JSONObject("{\"key\": 23}")) }
+
     assertEquals(
       JSONObject("{\"key\": 23}").toString(),
       defaultPreferences.get("set_json_object", JSONObject().toString())
@@ -92,10 +115,9 @@ class AdvancedPreferencesTest {
   }
 
   @Test
-  fun testJSONArray() {
-    defaultPreferences.edit(true) {
-      put("set_json_array", JSONArray("[{\"key\": 23}]"))
-    }
+  fun `persist a jsonArray value`() {
+    defaultPreferences.edit { put("set_json_array", JSONArray("[{\"key\": 23}]")) }
+
     assertEquals(
       JSONArray("[{\"key\": 23}]").toString(),
       defaultPreferences.get("set_json_array", JSONArray().toString())
@@ -103,81 +125,89 @@ class AdvancedPreferencesTest {
   }
 
   @Test
-  fun testObject() {
-      defaultPreferences.edit(true) {
-          put("set_test_object", TestObject("key", "value"))
-      }
-      assertEquals(
-          TestObject("key", "value"),
-          defaultPreferences.get("set_test_object", TestObject("empty", "empty"))
-      )
-  }
-
-  @Test
-  fun `contains value`() {
-    defaultPreferences.edit(true) {
-      put("string_key_23", "test_23")
-    }
+  fun `persist a random object value`() {
+    defaultPreferences.edit { put("set_test_object", TestObject("key", "value")) }
 
     assertEquals(
-      true,
-      defaultPreferences.contains("string_key_23")
+      TestObject("key", "value"),
+      defaultPreferences.get("set_test_object", TestObject("empty", "empty"))
     )
   }
 
   @Test
-  fun `remove value`() {
-    defaultPreferences.edit(true) {
-      put("string_key_23", "test_23")
-      put("string_key_24", "test_24")
-      remove("string_key_24")
+  fun `return default object when persisted object doesn't exists`() {
+    assertEquals(
+      TestObject("empty", "empty"),
+      defaultPreferences.get("set_test_object", TestObject("empty", "empty"))
+    )
+  }
+
+  @Test
+  fun `persist a random value with a key and verify that preferences contains a value with the key used`() {
+    defaultPreferences.edit { put("key_23", "test_23") }
+
+    assertEquals(
+      true,
+      defaultPreferences.contains("key_23")
+    )
+  }
+
+  @Test
+  fun `persist a random values, remove one of them and verify that value was removed`() {
+    defaultPreferences.edit {
+      put("key_23", "test_23")
+      put("key_24", "test_24")
+      remove("key_24")
     }
 
     assertEquals(
       "test_23",
-      defaultPreferences.get("string_key_23", "no_value")
+      defaultPreferences.get("key_23", "no_value")
     )
     assertEquals(
       "no_value",
-      defaultPreferences.get("string_key_24", "no_value")
+      defaultPreferences.get("key_24", "no_value")
+    )
+    assertEquals(
+      false,
+      defaultPreferences.contains("key_24")
     )
   }
 
   @Test
-  fun `clear all preferences`() {
-    defaultPreferences.edit(true) {
-      put("string_key_23", "test_23")
-      put("string_key_24", "test_24")
-      put("string_key_25", "test_25")
-      put("string_key_26", "test_26")
+  fun `persist a random values, clear all preferences and verify that preferences is cleared`() {
+    defaultPreferences.edit {
+      put("key_23", "test_23")
+      put("key_24", "test_24")
+      put("key_25", "test_25")
+      put("key_26", "test_26")
     }
-    defaultPreferences.edit(true) {
-      clear()
-    }
+    defaultPreferences.edit { clear() }
 
-    assertEquals(false, defaultPreferences.contains("string_key_23"))
-    assertEquals(false, defaultPreferences.contains("string_key_24"))
-    assertEquals(false, defaultPreferences.contains("string_key_25"))
-    assertEquals(false, defaultPreferences.contains("string_key_26"))
+    assertEquals(false, defaultPreferences.contains("key_23"))
+    assertEquals(false, defaultPreferences.contains("key_24"))
+    assertEquals(false, defaultPreferences.contains("key_25"))
+    assertEquals(false, defaultPreferences.contains("key_26"))
   }
 
   @Test
-  fun `get all`() {
-    defaultPreferences.edit(true) {
-      put("string_key", "string")
-      put("integer_key", 23)
-      put("float_key", 12f)
-      put("long_key", 42L)
+  fun `persist a random values, get all preferences and verify that preferences exists`() {
+    defaultPreferences.edit {
+      put("key", "string")
+      put("key", 23)
+      put("key", 12f)
+      put("key", 42L)
     }
 
     assertEquals(
       mapOf(
-        "string_key" to "string",
-        "integer_key" to 23,
-        "float_key" to 12f,
-        "long_key" to 42L
+        "key" to "string",
+        "key" to 23,
+        "key" to 12f,
+        "key" to 42L
       ),
-      defaultPreferences.getAll())
+      defaultPreferences.getAll()
+    )
   }
 
   data class TestObject(val key: String, val value: String) : Comparable<TestObject> {
@@ -187,5 +217,4 @@ class AdvancedPreferencesTest {
       else -> -1
     }
   }
-
 }
