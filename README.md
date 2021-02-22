@@ -1,7 +1,7 @@
 Android Preferences
 ==========
 
-<a href='https://github.com/raxden/android-preferences/actions?query=Continuous+Delivery'><img src='https://github.com/raxden/android-preferences/workflows/Continuous%20Delivery/badge.svg'></a>
+<a href='https://github.com/raxden/android-preferences/actions/workflows/deploy_library.yml'><img src='https://github.com/raxden/android-preferences/workflows/Continuous%20Delivery/badge.svg'></a>
 [![codecov](https://codecov.io/gh/raxden/android-preferences/branch/master/graph/badge.svg?token=E55S5DHJ9B)](https://codecov.io/gh/raxden/android-preferences)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.raxdenstudios/preferences/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.raxdenstudios/preferences)
 
