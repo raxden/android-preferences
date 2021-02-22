@@ -20,7 +20,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check out code
         uses: actions/checkout@v2
 
@@ -38,7 +37,6 @@ jobs:
 
     needs: build
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check out code
         uses: actions/checkout@v2
 
@@ -50,6 +48,9 @@ jobs:
       - name: Unit tests
         run: bash ./gradlew --console=plain libraries:preferences:detekt libraries:preferences:testReleaseUnitTest libraries:preferences:jacocoTestReportRelease
 
+      - name: Upload to Codecov
+        uses: codecov/codecov-action@v1
+
   deploy:
     name: Run Deploy Library
     runs-on: ubuntu-latest
@@ -57,7 +58,6 @@ jobs:
 
     needs: test
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check out code
         uses: actions/checkout@v2
 
