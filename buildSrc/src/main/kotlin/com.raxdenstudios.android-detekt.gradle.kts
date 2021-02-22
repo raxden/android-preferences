@@ -13,7 +13,6 @@ configure<DetektExtension> {
   reports {
     html {
       enabled = true
-      destination = file("${project.rootDir}/reports/detekt.html")
     }
   }
 }
