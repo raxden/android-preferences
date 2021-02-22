@@ -2,6 +2,7 @@ plugins {
   id("com.raxdenstudios.version-library")
   id("com.raxdenstudios.android-library")
   id("com.raxdenstudios.publish-library")
+  id("com.raxdenstudios.jacoco-report")
 }
 
 versioning {
